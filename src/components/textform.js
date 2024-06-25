@@ -24,6 +24,8 @@ export default function TextForm(props) {
       console.log("text cleared");
       document.getElementById('emg').innerHTML = "";
       document.getElementById('ema').innerHTML = "";
+      document.getElementById('pha').innerHTML ='';
+      document.getElementById('phn').innerHTML ='';
       setText("");
   }
 
@@ -47,7 +49,8 @@ export default function TextForm(props) {
     document.getElementById('phn').innerHTML = phone.toString();
     }
     else{
-      document.getElementById('emg').innerHTML = "No phone numbers found";
+      document.getElementById('pha').innerHTML = "No phone numbers found";
+      
     }
     console.log(emails);
     
@@ -58,25 +61,29 @@ export default function TextForm(props) {
     <>
       
     
-    <div className="mb-3 container">
+    <div className="mb-3 container" style={{color: props.mode==='dark'?'white':'black'}}>
     <h1>{props.heading}  </h1>
     
-    <textarea className="form-control" id="mytext" rows="5" value={text} onChange={HandleOnChange} ></textarea>
+    <textarea className="form-control" id="mytext" rows="5" value={text} onChange={HandleOnChange} style={{backgroundColor : props.mode==='dark'?'#212529':'#fcd874' , color: props.mode==='dark'?'white':'#212529' }} ></textarea>
     <button className="btn btn-info my-3 mx-2"  onClick={Handlevagera}>Convert to Uppercase</button> 
     <button className="btn btn-info my-3 mx-2"  onClick={HandleL}>Convert to Lowercase</button>
     <button className="btn btn-warning my-3 mx-2"  onClick={findEmail}>Find Emails</button>
     <button className="btn btn-warning my-3 mx-2"  onClick={findPhone}>Find Phone Numbers</button>
     <button className="btn btn-danger my-3 mx-2"  onClick={clearText}>Clear Text</button>
   </div>
-  <div className='container'>
+  <div className='container' style={{color: props.mode==='dark'?'white':'black'}}>
     <h2>
       Your text summary:
     </h2>
     <p>
-      {text.split(" ").length-1} words {text.length} characters {text.split(".").length-1} sentences {text.split(" ").length * 0.008 * 60} Seconds to read
-
+      {text.split(" ").length-1} words {text.length} characters {text.split(".").length-1} sentences <br/> {text.split(" ").length * 0.008 * 60} Seconds to read
+      </p>
+    
+    <h3>{text?'Preview:':''}</h3>
+    <p>
+      {text}
     </p>
-    <br/>
+    
     <div >
       <h3 id="emg"> </h3>
       <p id="ema"></p>
@@ -85,10 +92,7 @@ export default function TextForm(props) {
       <h3 id="pha"> </h3>
       <p id="phn"></p>
     </div>
-    <h3>Preview:</h3>
-    <p>
-      {text}
-    </p>
+    
   </div>
 </>
   )
