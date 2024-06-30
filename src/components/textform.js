@@ -98,19 +98,28 @@ export default function TextForm(props) {
       
     
     <div className="mb-3 container" style={{color: props.mode==='dark'?'white':'black'}}>
+      <br/>
     <h1>{props.heading}  </h1>
-    
-    <textarea className="form-control" id="mytext" rows="5" value={text} onChange={HandleOnChange} style={{backgroundColor : props.mode==='dark'?'#212529':'#fffb87' , color: props.mode==='dark'?'white':'#212529' }} ></textarea>
-    <button className="btn btn-info my-3 mx-2"  onClick={Handlevagera}>Convert to Uppercase</button> 
-    <button className="btn btn-info my-3 mx-2"  onClick={HandleL}>Convert to Lowercase</button>
-    <button className="btn btn-info my-3 mx-2"  onClick={extraSace}>Remove Extra Space</button>
-    <button className="btn btn-danger my-3 mx-2"  onClick={badfilter}>Remove Abusive Words</button>
-    <button className="btn btn-warning my-3 mx-2"  onClick={findEmail}>Find Emails</button>
-    <button className="btn btn-warning my-3 mx-2"  onClick={findPhone}>Find Phone Numbers</button>
-    <button className="btn btn-success my-3 mx-2"  onClick={HandleCopy}>Copy</button>
-    <button className="btn btn-danger my-3 mx-2"  onClick={clearText}>Clear Text</button>
+     <br/>
+    <textarea className="form-control" id="mytext" rows="5" value={text} onChange={HandleOnChange} style={{backgroundColor : props.mode==='dark'?'#212529':'#ffdb70' , color: props.mode==='dark'?'white':'#212529' }} ></textarea>
+    <button className="btn btn-info my-2 mx-2"  onClick={Handlevagera}>Convert to Uppercase</button> 
+    <button className="btn btn-info my-2 mx-2"  onClick={HandleL}>Convert to Lowercase</button>
+    <button className="btn btn-info my-2 mx-2"  onClick={extraSace}>Remove Extra Space</button>
+    <button className="btn btn-danger my-2 mx-2"  onClick={badfilter}>Remove Abusive Words</button>
+    <button className="btn btn-warning my-2 mx-2"  onClick={findEmail}>Find Emails</button>
+    <button className="btn btn-warning my-2 mx-2"  onClick={findPhone}>Find Phone Numbers</button>
+    <button className="btn btn-success my-2 mx-2"  onClick={HandleCopy}>Copy</button>
+    <button className="btn btn-danger my-2 mx-2"  onClick={clearText}>Clear Text</button>
   </div>
   <div className='container' style={{color: props.mode==='dark'?'white':'black'}}>
+    <div >
+      <h3 id="emg"> </h3>
+      <p id="ema"></p>
+    </div>
+    <div >
+      <h3 id="pha"> </h3>
+      <p id="phn"></p>
+    </div>
     <h2>
       Your text summary:
     </h2>
@@ -123,14 +132,7 @@ export default function TextForm(props) {
       {text}
     </p>
     
-    <div >
-      <h3 id="emg"> </h3>
-      <p id="ema"></p>
-    </div>
-    <div >
-      <h3 id="pha"> </h3>
-      <p id="phn"></p>
-    </div>
+    
     
   </div>
 </>
